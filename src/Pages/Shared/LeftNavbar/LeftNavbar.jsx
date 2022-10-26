@@ -15,8 +15,8 @@ const LeftNavbar = () => {
         <div>
             <h2>Left Navbar: {courses.length}</h2>
             {
-                courses.map(category => <p key={category.id}>
-                    <Link>{category.name}</Link>
+                courses.map(course => <p key={course.id}>
+                    <Link to={`/course/${course.id}`}>{course.name}</Link>
                 </p>)
             }
         </div>
