@@ -12,11 +12,10 @@ const LeftNavbar = () => {
         .then(data => setCourses(data))
     }, [])
     return (
-        <div>
-            <h2>Left Navbar: {courses.length}</h2>
+        <div className='my-4'>
             {
                 courses.map(course => <p key={course._id}>
-                    <Link to={`/courses-categories/${course._id}`}>{course.name}</Link>
+                    <Link style={{textDecoration: "none", color: "black", fontSize: "20px"}} to={`/courses-categories/${course._id}`}>{course.name}</Link>
                 </p>)
             }
         </div>

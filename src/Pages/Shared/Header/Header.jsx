@@ -10,11 +10,11 @@ const Header = () => {
         <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
             <Container>
                 <img src={Logo} style={{ width: '70px' }} alt="" />
-                <Navbar.Brand href="#home">Programming Education</Navbar.Brand>
+                <Navbar.Brand><Link style={{textDecoration: "none"}} to="/">Programming Education</Link></Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <Link to="/courses">Courses</Link>
+                        <Nav.Link><Link style={{textDecoration: "none"}} to="/courses">Courses</Link></Nav.Link>
                         <Nav.Link href="#pricing">FAQ</Nav.Link>
                         <Nav.Link href="#pricing">Blogs</Nav.Link>
                     </Nav>

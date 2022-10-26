@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom"
 import Main from "../../layout/Main"
+import CheakoutPage from "../../Pages/CheakoutPage/CheakoutPage/CheakoutPage"
 import Course from "../../Pages/Course/Course/Course"
 import CourseDetails from "../../Pages/CourseDetails/CourseDetails/CourseDetails"
 import Courses from "../../Pages/Courses/Courses/Courses"
@@ -23,15 +24,15 @@ export const routes = createBrowserRouter([
                 element: <Courses></Courses>,
                 loader: () => fetch('http://localhost:5000/courses-categories')
             },
-            // {
-            //     path: '/',
-            //     element: <Courses></Courses>,
-            //     loader: () => fetch('http://localhost:5000/courses-categories')
-            // }
             {
                 path: '/courses-categories/:id',
                 element: <CourseDetails></CourseDetails>,
-                loader: ({params}) => fetch(`http://localhost:5000/courses-categories/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/courses-categories/${params.id}`)
+            },
+            {
+                path: '/cheakout/:id',
+                element: <CheakoutPage></CheakoutPage>,
+                loader: ({ params }) => fetch(`http://localhost:5000/courses-categories/${params.id}`)
             }
         ]
     }
