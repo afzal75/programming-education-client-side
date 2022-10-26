@@ -7,7 +7,7 @@ const LeftNavbar = () => {
     const [courses, setCourses] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/subject-courses')
+        fetch('http://localhost:5000/courses-categories')
         .then(res => res.json())
         .then(data => setCourses(data))
     }, [])
@@ -15,8 +15,8 @@ const LeftNavbar = () => {
         <div>
             <h2>Left Navbar: {courses.length}</h2>
             {
-                courses.map(course => <p key={course.id}>
-                    <Link to={`/course/${course.id}`}>{course.name}</Link>
+                courses.map(course => <p key={course._id}>
+                    <Link to={`/courses-categories/${course._id}`}>{course.name}</Link>
                 </p>)
             }
         </div>
