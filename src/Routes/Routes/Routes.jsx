@@ -1,9 +1,11 @@
 import { createBrowserRouter } from "react-router-dom"
 import Main from "../../layout/Main"
+import Blog from "../../Pages/Blog/Blog/Blog"
 import CheakoutPage from "../../Pages/CheakoutPage/CheakoutPage/CheakoutPage"
 import Course from "../../Pages/Course/Course/Course"
 import CourseDetails from "../../Pages/CourseDetails/CourseDetails/CourseDetails"
 import Courses from "../../Pages/Courses/Courses/Courses"
+import FAQ from "../../Pages/FAQ/FAQ/FAQ"
 
 export const routes = createBrowserRouter([
     {
@@ -33,6 +35,14 @@ export const routes = createBrowserRouter([
                 path: '/cheakout/:id',
                 element: <CheakoutPage></CheakoutPage>,
                 loader: ({ params }) => fetch(`http://localhost:5000/courses-categories/${params.id}`)
+            },
+            {
+                path: '/blog',
+                element: <Blog></Blog>
+            },
+            {
+                path: '/faq',
+                element: <FAQ></FAQ>
             }
         ]
     }

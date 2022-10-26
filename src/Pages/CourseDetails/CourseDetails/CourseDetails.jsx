@@ -17,7 +17,7 @@ const CourseDetails = () => {
                     </Card.Text>
                     <p>Price: {price}</p>
                     <Link to={`/cheakout/${_id}`}>
-                        <Button variant="primary">Premium</Button>
+                        <Button variant="primary">Premium Access</Button>
                     </Link>
                 </div>
             </Card.Body>
