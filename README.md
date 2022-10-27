@@ -1,6 +1,18 @@
-# Getting Started with Create React App
+* My Website name: Programming Education.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+#### Features:
+* Clickeable Course Card
+* Firebase Authentication
+* Mobile and desktop responsive
+* Toggole Button ( Open & Close)
+* CheakeOut Page.
+* Private route
+
+#### Techonologies
+* client side: React, React-Bootstrap, React Icons, React-router-dom, Firebase.
+
+* Server side: Node, Express, Vercel
 
 ## Available Scripts
 

@@ -8,9 +8,15 @@ import { Link } from 'react-router-dom';
 import Logo from '../../../assets/logo/Logo.png'
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import { FaUser } from "react-icons/fa";
+import { useState } from 'react';
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
+    const [toggole, setToggle] = useState(false);
+
+    const toggoleButton = () => {
+        setToggle(!toggole)
+    }
 
     const handleLogOut = () => {
         logOut()
@@ -30,6 +36,7 @@ const Header = () => {
                         <Nav.Link><Link style={{ textDecoration: "none" }} to="/courses">Courses</Link></Nav.Link>
                         <Nav.Link><Link style={{ textDecoration: "none" }} to="/faq">FAQ</Link></Nav.Link>
                         <Nav.Link><Link style={{ textDecoration: "none" }} to="/blog">Blog</Link></Nav.Link>
+                        <button onClick={toggoleButton}>{toggole? "OPEN" : "CLOSE"}</button>
                     </Nav>
                     <Nav>
                         <Nav.Link href="#deets">
@@ -48,14 +55,15 @@ const Header = () => {
                         </Nav.Link>
                         <Nav.Link eventKey={2} href="#memes">
                             {user?.photoURL ?
-                                <Image style={{ height: "30px" }} roundedCircle src={user?.photoURL}>
+                                <Image style={{ height: "30px" }} roundedCircle src={user?.photoURL}
+                                title={user?.displayName}
+                                >
 
                                 </Image>
                                 :
                                 <FaUser></FaUser>
                             }
                         </Nav.Link>
-                        <button>Toggole</button>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

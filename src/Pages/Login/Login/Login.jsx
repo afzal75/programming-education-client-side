@@ -1,4 +1,4 @@
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React from 'react';
 import { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
@@ -11,11 +11,12 @@ import { useState } from 'react';
 
 const Login = () => {
     const [error, setError] = useState('');
-    const {providerLogin, signIn} = useContext(AuthContext);
+    const {providerLogin, signIn, githubProviderLogin} = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
 
     const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
 
     const from = location?.state?.from?.pathname || '/';
 
@@ -49,6 +50,17 @@ const Login = () => {
         })
     }
 
+    const handleGithubLogin = () => {
+        githubProviderLogin(githubProvider)
+        .then(result => {
+            const user = result.user;
+            console.log(user);
+        })
+        .catch(error => {
+            console.error(error);
+        })
+    }
+
     return (
         <Form onSubmit={handleSubmit} style={{width: "50%", margin: "0 auto"}}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -68,7 +80,7 @@ const Login = () => {
             </Form.Text>
             <br></br>
             <Button className='my-2' onClick={handleGoogleSignIn} style={{marginLeft: "100px"}} variant="outline-info"><FcGoogle></FcGoogle> CONTINUE WITH GOOGLE</Button>
-            <Button onClick={handleGoogleSignIn} style={{marginLeft: "100px"}} variant="outline-info"><FaGithub></FaGithub> CONTINUE WITH GITHUB</Button>
+            <Button onClick={handleGithubLogin} style={{marginLeft: "100px"}} variant="outline-info"><FaGithub></FaGithub> CONTINUE WITH GITHUB</Button>
         </Form>
     );
 };
