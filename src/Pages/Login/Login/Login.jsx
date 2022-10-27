@@ -4,6 +4,8 @@ import { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import {FcGoogle} from 'react-icons/fc'
+import {FaGithub} from 'react-icons/fa'
 
 const Login = () => {
 
@@ -40,7 +42,8 @@ const Login = () => {
                 We'll never share your email with anyone else.
             </Form.Text>
             <br></br>
-            <Button onClick={handleGoogleSignIn} style={{marginLeft: "100px"}} variant="outline-info">CONTINUE WITH GOOGLE</Button>
+            <Button className='my-2' onClick={handleGoogleSignIn} style={{marginLeft: "100px"}} variant="outline-info"><FcGoogle></FcGoogle> CONTINUE WITH GOOGLE</Button>
+            <Button onClick={handleGoogleSignIn} style={{marginLeft: "100px"}} variant="outline-info"><FaGithub></FaGithub> CONTINUE WITH GITHUB</Button>
         </Form>
     );
 };
