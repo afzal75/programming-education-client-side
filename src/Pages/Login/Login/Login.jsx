@@ -6,14 +6,18 @@ import Form from 'react-bootstrap/Form';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import {FcGoogle} from 'react-icons/fc'
 import {FaGithub} from 'react-icons/fa'
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 const Login = () => {
-
+    const [error, setError] = useState('');
     const {providerLogin, signIn} = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const googleProvider = new GoogleAuthProvider();
-    const navigate = useNavigate();
+
+    const from = location?.state?.from?.pathname || '/';
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -25,10 +29,12 @@ const Login = () => {
             const user = result.user;
             console.log(user);
             form.reset();
-            navigate('/')
+            setError('')
+            navigate(from, {replace: true});
         })
         .catch( error => {
-            console.error(error)
+            console.error(error);
+            setError(error.message);
         })
     }
 
@@ -57,8 +63,8 @@ const Login = () => {
             <Button variant="primary"  type="submit">
                 Login
             </Button>
-            <Form.Text className="text-muted">
-                We'll never share your email with anyone else.
+            <Form.Text className="text-danger">
+                {error}
             </Form.Text>
             <br></br>
             <Button className='my-2' onClick={handleGoogleSignIn} style={{marginLeft: "100px"}} variant="outline-info"><FcGoogle></FcGoogle> CONTINUE WITH GOOGLE</Button>
