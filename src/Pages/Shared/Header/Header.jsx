@@ -20,10 +20,10 @@ const Header = () => {
 
     const handleLogOut = () => {
         logOut()
-        .then( () => {})
-        .catch( error => {
-            console.error(error);
-        })
+            .then(() => { })
+            .catch(error => {
+                console.error(error);
+            })
     }
     return (
         <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
@@ -36,27 +36,28 @@ const Header = () => {
                         <Nav.Link><Link style={{ textDecoration: "none" }} to="/courses">Courses</Link></Nav.Link>
                         <Nav.Link><Link style={{ textDecoration: "none" }} to="/faq">FAQ</Link></Nav.Link>
                         <Nav.Link><Link style={{ textDecoration: "none" }} to="/blog">Blog</Link></Nav.Link>
-                        <button onClick={toggoleButton}>{toggole? "OPEN" : "CLOSE"}</button>
+                        <Button variant='outline-secondary' onClick={toggoleButton}>{toggole ? "OPEN" : "CLOSE"}</Button>
                     </Nav>
                     <Nav>
                         <Nav.Link href="#deets">
                             {
                                 user?.uid ?
                                     <>
-                                        <span>{user?.displayName}</span>
                                         <Button variant='light' onClick={handleLogOut}>Logout</Button>
+                                        <span>{user?.displayName}</span>
+
                                     </>
                                     :
                                     <>
-                                        <Link style={{textDecoration: "none", marginRight: "8px"}} to='/login'>Login</Link>
-                                        <Link style={{textDecoration: "none"}} to='/register'>Register</Link>
+                                        <Link style={{ textDecoration: "none", marginRight: "8px" }} to='/login'>Login</Link>
+                                        <Link style={{ textDecoration: "none" }} to='/register'>Register</Link>
                                     </>
                             }
                         </Nav.Link>
                         <Nav.Link eventKey={2} href="#memes">
                             {user?.photoURL ?
                                 <Image style={{ height: "30px" }} roundedCircle src={user?.photoURL}
-                                title={user?.displayName}
+                                    title={user?.displayName}
                                 >
 
                                 </Image>

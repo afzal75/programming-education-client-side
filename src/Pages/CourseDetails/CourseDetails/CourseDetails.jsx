@@ -11,7 +11,7 @@ const CourseDetails = () => {
     return (
         <>
             <Pdf targetRef={ref} filename="code-example.pdf">
-                {({ toPdf }) => <button style={{marginTop: "10px", border: "none"}} onClick={toPdf}>Download Pdf</button>}
+                {({ toPdf }) => <Button variant='primary' style={{marginTop: "10px", border: "none"}} onClick={toPdf}>Download Pdf</Button>}
             </Pdf>
             <Card style={{ width: '20rem', marginTop: "20px" }}>
             <div ref={ref}>

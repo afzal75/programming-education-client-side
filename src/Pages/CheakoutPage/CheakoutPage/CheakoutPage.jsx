@@ -6,16 +6,18 @@ const CheakoutPage = () => {
     const courses = useLoaderData();
     const { name, price } = courses;
     return (
-        <Card style={{ width: '18rem' }}>
-            <div className='text-center'>
-                <Card.Body>
-                    <Card.Title>{name}</Card.Title>
-                    <Card.Text>
-                        Price: {price}
-                    </Card.Text>
-                </Card.Body>
-            </div>
-        </Card>
+        <div>
+            <Card style={{ width: '18rem', marginTop: "20px" }}>
+                <div className='text-center'>
+                    <Card.Body>
+                        <Card.Title>{name}</Card.Title>
+                        <Card.Text>
+                            Price: {price}
+                        </Card.Text>
+                    </Card.Body>
+                </div>
+            </Card>
+        </div>
     );
 };
 
