@@ -48,8 +48,8 @@ const Header = () => {
                                     </>
                                     :
                                     <>
-                                        <Link to='/login'>Login</Link>
-                                        <Link to='/register'>Register</Link>
+                                        <Link style={{textDecoration: "none", marginRight: "8px"}} to='/login'>Login</Link>
+                                        <Link style={{textDecoration: "none"}} to='/register'>Register</Link>
                                     </>
                             }
                         </Nav.Link>
