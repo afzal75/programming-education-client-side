@@ -6,7 +6,7 @@ import Form from 'react-bootstrap/Form';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import {FcGoogle} from 'react-icons/fc'
 import {FaGithub} from 'react-icons/fa'
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
 const Login = () => {
@@ -76,6 +76,7 @@ const Login = () => {
             <Button variant="primary"  type="submit">
                 Login
             </Button>
+            <p>Create a New Account <Link to="/register">Register</Link></p>
             <Form.Text className="text-danger">
                 {error}
             </Form.Text>

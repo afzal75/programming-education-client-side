@@ -24,22 +24,22 @@ export const routes = createBrowserRouter([
             {
                 path: '/',
                 element: <Courses></Courses>,
-                loader: () => fetch('http://localhost:5000/courses-categories')
+                loader: () => fetch('https://assignment-10-server-neon.vercel.app/courses-categories')
             },
             {
                 path: '/courses',
                 element: <Courses></Courses>,
-                loader: () => fetch('http://localhost:5000/courses-categories')
+                loader: () => fetch('https://assignment-10-server-neon.vercel.app/courses-categories')
             },
             {
                 path: '/courses-categories/:id',
                 element: <CourseDetails></CourseDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/courses-categories/${params.id}`)
+                loader: ({ params }) => fetch(`https://assignment-10-server-neon.vercel.app/courses-categories/${params.id}`)
             },
             {
                 path: '/cheakout/:id',
                 element: <PrivateRoute><CheakoutPage></CheakoutPage></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/courses-categories/${params.id}`)
+                loader: ({ params }) => fetch(`https://assignment-10-server-neon.vercel.app/courses-categories/${params.id}`)
             },
             {
                 path: '/blog',
